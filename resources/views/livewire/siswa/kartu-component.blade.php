@@ -65,7 +65,7 @@
                     records
                 };
 
-                $wire.set('nomorKartu', records[0].data);
+                // $wire.set('nomorKartu', records[0].data);
 
                 output.textContent = JSON.stringify(result, null, 2);
                 status.textContent = '✅ NFC card read successfully';
