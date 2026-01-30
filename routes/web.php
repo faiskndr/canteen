@@ -7,6 +7,7 @@ use App\Livewire\Admin\Kantin;
 use App\Livewire\Admin\Kartu;
 use App\Livewire\AuthComponent;
 use App\Livewire\Siswa\KartuComponent;
+use App\Livewire\Siswa\PinComponent;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,4 +30,5 @@ Route::prefix('/admin')->middleware(['auth', 'is_admin'])->group(function () {
 
 Route::prefix('/siswa')->group(function () {
     Route::get('/scan-kartu', KartuComponent::class);
+    Route::get('/pin', PinComponent::class);
 });
