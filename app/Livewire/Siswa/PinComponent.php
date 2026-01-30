@@ -9,7 +9,7 @@ use Livewire\Attributes\On;
 class PinComponent extends Component
 {
     public KartuModel $kartuModel;
-
+    public string $jenis = '';
     public function render()
     {
         return view('livewire.siswa.pin-component');
@@ -19,5 +19,17 @@ class PinComponent extends Component
     public function handleStep()
     {
         $this->dispatch('handleStep', 'menu');
+    }
+
+    #[On('nextTopUpStep')]
+    public function handleTopUpStep()
+    {
+        $this->dispatch('handleTopUpStep', 'top-up');
+    }
+
+    #[On('nextPaymentStep')]
+    public function nextPaymentStep()
+    {
+        $this->dispatch('handlePayment');
     }
 }

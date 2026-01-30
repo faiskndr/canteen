@@ -2,9 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class RiwayatSaldo extends Model
+class RiwayatSaldo extends BaseModel
 {
-    //
+    protected $primaryKey = "riwayat_saldo_id";
+    protected $table = "riwayat_saldo";
+
+    protected $fillable = [
+        'saldo_awal', 
+        'saldo_akhir', 
+        'jenis', 
+        'kartu_id', 
+        'transaksi_id',
+        'top_up_id'
+    ];
 }

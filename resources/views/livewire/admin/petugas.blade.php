@@ -66,8 +66,9 @@
                     class="w-full border-4 border-gray-800 p-3 focus:outline-none focus:ring-4 focus:ring-gray-400"
                 >
                   <option value="">Pilih kantin</option>
-                 
-                
+                  @foreach($kantinList as $k)
+                    <option value="{{ (string) $k->kantin_id }}">{{ $k->nama }}</option>
+                  @endforeach
                 </select>
               </div>
               

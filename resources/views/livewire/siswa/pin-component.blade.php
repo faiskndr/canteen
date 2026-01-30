@@ -15,7 +15,7 @@
           </div> -->
         
         <div class="flex justify-center mb-8">
-            <livewire:siswa.input-pin-component :kartuModel="$kartuModel" :length="4" />
+            <livewire:siswa.input-pin-component :kartuModel="$kartuModel" :length="4" :jenis="$jenis"/>
         </div>
       </div>
     </div>

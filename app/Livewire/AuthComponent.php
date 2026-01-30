@@ -33,6 +33,8 @@ class AuthComponent extends Component
       return match ($userGroupId) {
           1 => redirect()->intended('/superadmin/dashboard'),
           2 => redirect()->intended('/admin/dashboard'),
+          3 => redirect()->intended('/petugas-top-up/top-up'),
+          4 => redirect()->intended('/petugas-kantin/bayar'),
           default => redirect()->intended('/'),
       };
     }

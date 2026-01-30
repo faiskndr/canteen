@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Transaksi extends Model
+class Transaksi extends BaseModel
 {
-    //
+    protected $primaryKey = "transaksi_id";
+    protected $table = "transaksi";
+
+    protected $guarded = ['transaksi_id'];
 }

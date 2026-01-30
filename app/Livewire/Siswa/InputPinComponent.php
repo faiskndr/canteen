@@ -10,6 +10,7 @@ class InputPinComponent extends Component
     public KartuModel $kartuModel;
     public int $length = 6;
     public string $value = '';
+    public string $jenis = '';
 
     protected $rules = [
         'value' => 'nullable|string',
@@ -22,20 +23,23 @@ class InputPinComponent extends Component
 
     public function updatedValue()
     {
-        // Keep only digits and max length
         $this->value = substr(preg_replace('/\D/', '', $this->value), 0, $this->length);
         if (strlen($this->value) === $this->length) {
-            $this->submit();
+            if ($this->kartuModel->pin != $this->value) {
+                $this->addError("pin", "invalid pin!");
+            }
+            if ($this->jenis == 'top-up') {
+                $this->dispatch('nextTopUpStep');
+            } else if ($this->jenis == 'payment') {
+                $this->dispatch('nextPaymentStep');
+            } else {
+                $this->dispatch('nextStep');
+            }
         }
     }
 
     public function submit()
     {
-        if ($this->kartuModel->pin != $this->value) {
-            
-            $this->addError("pin", "invalid pin!");
-        }
 
-        $this->dispatch('nextStep');
     }
 }
