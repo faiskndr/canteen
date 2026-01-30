@@ -15,7 +15,7 @@
         @click.self="open = false"
         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-8 z-50"
     >
-        <div class="bg-white border-4 border-gray-800 p-8 max-w-md w-full">
+        <form wire:submit="blokir" class="bg-white border-4 border-gray-800 p-8 max-w-md w-full">
             <div class="flex items-center justify-between mb-6">
               <h2 class="text-2xl font-bold">BLOKIR KARTU</h2>
               <button
@@ -35,6 +35,7 @@
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2">ALASAN BLOKIR *</label>
               <textarea
+                wire:model="kartuForm.alasan_blokir"
                 class="w-full border-4 border-gray-800 p-3 focus:outline-none focus:ring-4 focus:ring-gray-400"
                 rows=3
                 placeholder="Enter reason..."
@@ -46,6 +47,7 @@
               <label class="flex items-center gap-3 cursor-pointer border-4 border-gray-800 p-4 hover:bg-gray-50">
                 <input
                   type="checkbox"
+                  wire:model="kartuForm.is_hilang"
                   class="w-6 h-6"
                 />
                 <div>
@@ -59,6 +61,7 @@
 
             <div class="flex gap-4">
               <button
+                type="submit"
                 class="flex-1 bg-red-600 text-white p-4 text-xl font-bold hover:bg-red-700 active:bg-red-800 disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 KONFIRMASI BLOKIR
@@ -71,7 +74,7 @@
                 BATAL
               </button>
             </div>
-        </div>
+        </form>
     </div>
     <div class="flex flex-col min-h-screen bg-gray-50 p-8">
     <div class="w-full max-w-6xl mx-auto">
@@ -146,6 +149,7 @@
                                 </button>
                             @else
                                 <button
+                                    wire:click="aktivasi({{ $k->kartu_id }})"
                                     class="flex items-center gap-2 border-4 border-green-600 px-4 py-3 font-bold hover:bg-green-50 text-green-600"
                                 >
                                     ✅ Aktivasi

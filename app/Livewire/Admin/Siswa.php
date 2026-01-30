@@ -90,7 +90,7 @@ class Siswa extends Component
         if ($siswaModel->exists) {
             $this->siswaModel = $siswaModel;
             $this->siswaForm->fill($siswaModel);
-            $this->siswaForm->nomor_kartu = $siswaModel->kartuRelation->no_kartu;
+            $this->siswaForm->nomor_kartu = $siswaModel->kartuRelation?->no_kartu;
             $this->isEdit = true;
         }
         $this->isShowForm = true;
