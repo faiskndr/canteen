@@ -4,7 +4,11 @@
       <div class="w-full max-w-md bg-white border-4 border-gray-800 p-8">
         <h1 class="text-3xl font-bold text-center mb-2">CEK SALDO</h1>
         <p class="text-center text-gray-600 mb-8" id="status">Tap kartu Untuk Melanjutakan</p>
-        
+        @error("kartu")
+         <div class="bg-red-100 border-4 border-red-500 p-4 mb-6">
+                <p class="text-red-700 font-bold text-center">{{ $message }}</p>
+          </div>
+        @enderror
         <div class="border-4 border-dashed border-gray-400 p-12 mb-8 bg-gray-50" id="scanBtn">
           <div class="flex flex-col items-center">
             <div class="w-24 h-24 border-4 border-gray-800 flex items-center justify-center mb-4 animate-pulse">
@@ -38,6 +42,7 @@
 
         try {
             if (!('NDEFReader' in window)) {
+                $wire.nomorKartu = '1212121212'
                 status.textContent = '❌ Web NFC is not supported on this device/browser.';
                 return;
             }
