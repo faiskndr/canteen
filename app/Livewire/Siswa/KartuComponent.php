@@ -4,9 +4,11 @@ namespace App\Livewire\Siswa;
 
 use Livewire\Component;
 use App\Models\Kartu as KartuModel;
+use Livewire\Attributes\On;
 
 class KartuComponent extends Component
 {
+    public KartuModel $kartuModel;
     public $langkah = 'scan';
     public $nomorKartu = '';
     public function render()
@@ -16,10 +18,17 @@ class KartuComponent extends Component
 
     public function process()
     {
-        if (KartuModel::where('no_kartu', $this->nomorKartu)->count() == 0) {
+        $this->kartuModel = KartuModel::where('no_kartu', $this->nomorKartu)->first();
+        if (is_null($this->kartuModel)) {
             $this->addError("kartu", "Nomor kartu tidak terdaftar!");
             return;
         }
         $this->langkah = 'pin';
+    }
+
+    #[On('handleStep')]
+    public function handleStep($step)
+    {
+        $this->langkah = $step;
     }
 }

@@ -1,3 +1,4 @@
+<div>
     <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8">
       <div class="w-full max-w-md bg-white border-4 border-gray-800 p-8">
         <div class="flex items-center justify-center mb-8">
@@ -14,7 +15,8 @@
           </div> -->
         
         <div class="flex justify-center mb-8">
-            <livewire:siswa.input-pin-component :length="4" />
+            <livewire:siswa.input-pin-component :kartuModel="$kartuModel" :length="4" />
         </div>
       </div>
     </div>
+</div>

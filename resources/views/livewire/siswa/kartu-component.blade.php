@@ -1,5 +1,6 @@
 <div>
-  @if ($langkah == 'scan')
+  @switch ($langkah)
+    @case("scan")
     <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8">
       <div class="w-full max-w-md bg-white border-4 border-gray-800 p-8">
         <h1 class="text-3xl font-bold text-center mb-2">CEK SALDO</h1>
@@ -12,7 +13,6 @@
         <div class="border-4 border-dashed border-gray-400 p-12 mb-8 bg-gray-50" id="scanBtn">
           <div class="flex flex-col items-center">
             <div class="w-24 h-24 border-4 border-gray-800 flex items-center justify-center mb-4 animate-pulse">
-              <!-- <CreditCard size={48} /> -->
             </div>
             <p class="text-xl font-bold text-center">TAP DI SINI</p>
           </div>
@@ -26,9 +26,14 @@
         </button>
       </div>
     </div>
-  @else
-    <livewire:siswa.pin-component />
-  @endif
+    @break
+    @case("pin")
+      <livewire:siswa.pin-component :kartuModel="$kartuModel"/>
+    @break
+    @case("menu")
+      <livewire:siswa.kartu-menu-component />
+    @break
+  @endswitch
 </div>
 
 @script
@@ -42,7 +47,7 @@
 
         try {
             if (!('NDEFReader' in window)) {
-                $wire.nomorKartu = '1212121212'
+                $wire.nomorKartu = '2920743651'
                 status.textContent = '❌ Web NFC is not supported on this device/browser.';
                 return;
             }

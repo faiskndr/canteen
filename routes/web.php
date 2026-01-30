@@ -29,6 +29,6 @@ Route::prefix('/admin')->middleware(['auth', 'is_admin'])->group(function () {
 });
 
 Route::prefix('/siswa')->group(function () {
-    Route::get('/scan-kartu', KartuComponent::class);
-    Route::get('/pin', PinComponent::class);
+    Route::get('/kartu', KartuComponent::class);
+    // Route::get('/pin', PinComponent::class);
 });
