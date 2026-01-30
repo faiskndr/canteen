@@ -24,22 +24,22 @@ class InputPinComponent extends Component
     public function updatedValue()
     {
         $this->value = substr(preg_replace('/\D/', '', $this->value), 0, $this->length);
-        if (strlen($this->value) === $this->length) {
-            if ($this->kartuModel->pin != $this->value) {
-                $this->addError("pin", "invalid pin!");
-            }
-            if ($this->jenis == 'top-up') {
-                $this->dispatch('nextTopUpStep');
-            } else if ($this->jenis == 'payment') {
-                $this->dispatch('nextPaymentStep');
-            } else {
-                $this->dispatch('nextStep');
-            }
-        }
+        // if (strlen($this->value) === $this->length) {
+
+        // }
     }
 
     public function submit()
     {
-
+        if ($this->kartuModel->pin != $this->value) {
+            $this->addError("pin", "invalid pin!");
+        }
+        if ($this->jenis == 'top-up') {
+            $this->dispatch('nextTopUpStep');
+        } else if ($this->jenis == 'payment') {
+            $this->dispatch('nextPaymentStep');
+        } else {
+            $this->dispatch('nextStep');
+        }
     }
 }

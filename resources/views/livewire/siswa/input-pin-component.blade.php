@@ -1,3 +1,4 @@
+<div>
 <div
     class="flex items-center gap-2"
     x-data="{
@@ -54,4 +55,11 @@
             @endif
         @endfor
     </div>
+</div>
+    <button
+              wire:click="submit"
+              class="w-full mt-4 bg-gray-800 text-white p-4 text-xl font-bold hover:bg-gray-700 active:bg-gray-900"
+            >
+              Proses
+          </button>
 </div>

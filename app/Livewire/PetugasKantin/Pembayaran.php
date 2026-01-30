@@ -68,10 +68,10 @@ class Pembayaran extends Component
                 'transaksi_id' => $transaksi->transaksi_id
             ]);
             DB::commit();
+            $this->langkah = "status-pembayaran";
         } catch (\Exception $e) {
             DB::rollback();
             dd($e);
         }
-        $this->langkah = "status";
     }
 }
