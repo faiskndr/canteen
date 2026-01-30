@@ -3,7 +3,7 @@
     <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8">
       <div class="w-full max-w-md bg-white border-4 border-gray-800 p-8">
         <h1 class="text-3xl font-bold text-center mb-2">CEK SALDO</h1>
-        <p class="text-center text-gray-600 mb-8" id="status">Tap kartu Untuk Melanjutak</p>
+        <p class="text-center text-gray-600 mb-8" id="status">Tap kartu Untuk Melanjutakan</p>
         
         <div class="border-4 border-dashed border-gray-400 p-12 mb-8 bg-gray-50" id="scanBtn">
           <div class="flex flex-col items-center">
@@ -27,7 +27,7 @@
   @endif
 </div>
 
-
+@script
 <script>
     const scanBtn = document.getElementById('scanBtn');
     const output = document.getElementById('output');
@@ -37,10 +37,10 @@
         
 
         try {
-            // if (!('NDEFReader' in window)) {
-            //     status.textContent = '❌ Web NFC is not supported on this device/browser.';
-            //     return;
-            // }
+            if (!('NDEFReader' in window)) {
+                status.textContent = '❌ Web NFC is not supported on this device/browser.';
+                return;
+            }
             const ndef = new NDEFReader();
             await ndef.scan();
 
@@ -65,7 +65,7 @@
                     records
                 };
 
-                // $wire.set('nomorKartu', records[0].data);
+                $wire.nomorKartu = records[0].data
 
                 output.textContent = JSON.stringify(result, null, 2);
                 status.textContent = '✅ NFC card read successfully';
@@ -84,3 +84,4 @@
         }
     });
 </script>
+@endscript
