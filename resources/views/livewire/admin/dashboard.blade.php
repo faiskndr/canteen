@@ -77,6 +77,7 @@
           </button>
 
           <button
+            wire:click="goToKartu"
             class="bg-white border-4 border-gray-800 p-8 hover:bg-gray-100 active:bg-gray-200"
           >
             <div class="flex items-center gap-4 mb-4">

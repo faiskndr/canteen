@@ -31,4 +31,9 @@ class Dashboard extends Component
     {
         $this->redirect('/admin/kantin', navigate: true);
     }
+
+    public function goToKartu()
+    {
+        $this->redirect('/admin/kartu', navigate: true);
+    }
 }

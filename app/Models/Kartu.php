@@ -14,4 +14,9 @@ class Kartu extends BaseModel
         'status',
         'siswa_id',
     ];
+
+    public function siswaRelation()
+    {
+        return $this->belongsTo(Siswa::class, 'siswa_id', 'siswa_id');
+    }
 }
