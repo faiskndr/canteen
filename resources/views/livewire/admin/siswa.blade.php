@@ -66,7 +66,7 @@
                   class="w-full border-4 border-gray-800 p-3 focus:outline-none focus:ring-4 focus:ring-gray-400"
                   placeholder="1003204211"
                   required
-                  disabled="{{ $isEdit }}"
+                  {{ $isEdit ? 'disabled' : '' }}
                 />
               </div>    
               <div>
