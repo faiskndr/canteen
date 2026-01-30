@@ -16,4 +16,14 @@ class Dashboard extends Component
     {
         $authService->logout();
     }
+
+    public function goToSiswa()
+    {
+        $this->redirect('/admin/siswa', navigate: true);
+    }
+
+    public function goToPetugas()
+    {
+        $this->redirect('/admin/petugas', navigate: true);
+    }
 }

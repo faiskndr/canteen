@@ -21,6 +21,9 @@ class User extends Authenticatable
         'username',
         // 'email',
         'password',
+        'user_group_id',
+        'kantin_id',
+        'sekolah_id'
     ];
 
     /**
@@ -45,4 +48,9 @@ class User extends Authenticatable
     //         'password' => 'hashed',
     //     ];
     // }
+
+    public function userGroupRelation()
+    {
+        return $this->belongsTo(UserGroup::class, 'user_group_id', 'user_group_id');
+    }
 }

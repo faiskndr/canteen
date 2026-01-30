@@ -2,9 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Siswa extends Model
+class Siswa extends BaseModel
 {
-    //
+    protected $primaryKey = 'siswa_id';
+    protected $table = 'siswa';
+
+    protected $fillable = [
+        'nis',
+        'nama',
+        'kelas',
+        'foto',
+        'sekolah_id',
+    ];
 }

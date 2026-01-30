@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Sekolah;
+use App\Models\UserGroup;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,8 +21,18 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'user_group_id' => 2
-            // 'name' => 'Test User',
-            // 'email' => 'test@example.com',
         ]);
+
+        Sekolah::create([
+            'nama' => 'pravda',
+            'alamat' => 'rusia'
+        ]);
+
+        $user_group = ['super admin', 'admin', 'petugas top up', 'petugas kantin'];
+        foreach($user_group as $u) {
+            UserGroup::create([
+                'nama' => $u
+            ]);
+        }
     }
 }

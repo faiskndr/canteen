@@ -17,6 +17,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <button
+            wire:click="goToSiswa"
             class="bg-white border-4 border-gray-800 p-8 hover:bg-gray-100 active:bg-gray-200"
           >
             <div class="flex items-center gap-4 mb-4">
@@ -31,6 +32,7 @@
           </button>
 
           <button
+            wire:click="goToPetugas"
             class="bg-white border-4 border-gray-800 p-8 hover:bg-gray-100 active:bg-gray-200"
           >
             <div class="flex items-center gap-4 mb-4">

@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Sekolah extends Model
+class Sekolah extends BaseModel
 {
-    //
+    protected $primaryKey = "sekolah_id";
+    protected $table = "sekolah";
+
+    public const CREATED_AT = 'dibuat_pada';
+    public const UPDATED_AT = 'diubah_pada';
 }

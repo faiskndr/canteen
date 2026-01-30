@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Livewire\Admin;
+
+use Livewire\Component;
+use App\Models\User;
+use App\Models\UserGroup;
+use App\Livewire\Forms\PetugasForm;
+use Illuminate\Support\Facades\Hash;
+use App\Traits\RedirectToAdminDashboard;
+
+class Petugas extends Component
+{
+    use RedirectToAdminDashboard;
+    
+    public ?User $user = null;
+    public PetugasForm $petugasForm;
+    public $isShowForm = false;
+    public $isEdit = false;
+    public $userGroupList = [];
+
+    public function render()
+    {
+        $petugas = User::whereIn('user_group_id', [3,4])->get();
+        return view('livewire.admin.petugas')->with([
+            'petugas' => $petugas
+        ]);
+    }
+
+    public function save()
+    {
+        $this->validate();
+
+        $params = array_merge($this->petugasForm->only([
+            'username', 
+            'user_group_id',
+            'kantin'
+        ]), [
+            'password' => Hash::make($this->petugasForm->password),
+            'sekolah_id' => 1,
+        ]);
+
+        if (!is_null($this->user)) {
+            $this->user->update($params);
+        } else {
+            User::create($params);
+        }
+
+        $this->close();
+    }
+
+    public function open(?User $user = null)
+    {
+        $this->userGroupList = UserGroup::whereIn('user_group_id', [3,4])->get();
+        if ($user->exists) {
+            $this->user = $user;
+            $this->petugasForm->fill($user);
+            $this->petugasForm->user_group_id = (string) $user->user_group_id;
+            $this->isEdit = true;
+        }
+        $this->isShowForm = true;
+    }
+
+    public function close()
+    {
+        $this->isShowForm = false;
+        $this->isEdit = false;
+        $this->reset();
+    }
+}
