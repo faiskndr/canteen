@@ -16,6 +16,7 @@ class Pembayaran extends Component
     public $langkah = 'input';
     public $nomorKartu = '';
     public $jumlah = 0;
+    public $saldoLama = 0;
 
     public function render()
     {
@@ -48,6 +49,7 @@ class Pembayaran extends Component
         try {
             $petugasKantin = auth()->user();
             $saldoAwal = $this->kartuModel->saldo;
+            $this->saldoLama = $saldoAwal;
             $this->kartuModel->saldo -= $this->jumlah;
             $this->kartuModel->save();
 
@@ -70,5 +72,6 @@ class Pembayaran extends Component
             DB::rollback();
             dd($e);
         }
+        $this->langkah = "status";
     }
 }
