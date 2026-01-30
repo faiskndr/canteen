@@ -7,7 +7,7 @@
             <div class="space-y-4">
             
             <button
-                onClick={onSelectBalanceCheck}
+                wire:click="selectMenu('saldo')"
                 class="w-full bg-white border-4 border-gray-800 text-gray-800 p-6 text-xl font-bold hover:bg-gray-100 active:bg-gray-200 flex items-center justify-center gap-4"
             >
                 <div class="w-12 h-12 border-4 border-gray-800 flex items-center justify-center">
@@ -17,7 +17,7 @@
             </button>
 
             <button
-                onClick={onSelectHistory}
+                wire:click="selectMenu('riwayat-transaksi')"
                 class="w-full bg-white border-4 border-gray-800 text-gray-800 p-6 text-xl font-bold hover:bg-gray-100 active:bg-gray-200 flex items-center justify-center gap-4"
             >
                 <div class="w-12 h-12 border-4 border-gray-800 flex items-center justify-center">

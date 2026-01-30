@@ -10,4 +10,9 @@ class KartuMenuComponent extends Component
     {
         return view('livewire.siswa.kartu-menu-component');
     }
+
+    public function selectMenu($menu)
+    {
+        $this->dispatch('handleStep', $menu);
+    }
 }

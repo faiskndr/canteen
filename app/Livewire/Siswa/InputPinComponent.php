@@ -24,7 +24,6 @@ class InputPinComponent extends Component
     {
         // Keep only digits and max length
         $this->value = substr(preg_replace('/\D/', '', $this->value), 0, $this->length);
-
         if (strlen($this->value) === $this->length) {
             $this->submit();
         }
@@ -33,6 +32,7 @@ class InputPinComponent extends Component
     public function submit()
     {
         if ($this->kartuModel->pin != $this->value) {
+            
             $this->addError("pin", "invalid pin!");
         }
 

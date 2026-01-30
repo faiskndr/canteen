@@ -33,6 +33,9 @@
     @case("menu")
       <livewire:siswa.kartu-menu-component />
     @break
+    @case("saldo")
+      <livewire:siswa.saldo-component :kartuModel="$kartuModel"/>
+    @break
   @endswitch
 </div>
 
