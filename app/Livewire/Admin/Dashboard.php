@@ -26,4 +26,9 @@ class Dashboard extends Component
     {
         $this->redirect('/admin/petugas', navigate: true);
     }
+
+    public function goToKantin()
+    {
+        $this->redirect('/admin/kantin', navigate: true);
+    }
 }

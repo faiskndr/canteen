@@ -66,6 +66,7 @@
                   class="w-full border-4 border-gray-800 p-3 focus:outline-none focus:ring-4 focus:ring-gray-400"
                   placeholder="1003204211"
                   required
+                  disabled="{{ $isEdit }}"
                 />
               </div>    
               <div>
@@ -167,6 +168,7 @@
                         </svg>
                     </button>
                     <button
+                        wire:click="delete({{ $s->siswa_id }})"
                         class="border-2 border-red-500 p-2 hover:bg-red-50"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 text-red-600">

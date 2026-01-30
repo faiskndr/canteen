@@ -18,7 +18,8 @@ return new class extends Migration
             $table->decimal('saldo', 15, 2)->default(0);
             $table->string('status');
             $table->unsignedBigInteger('siswa_id');
-            $table->timestamps();
+            $table->timestamp('dibuat_pada');
+            $table->timestamp('diubah_pada');
 
             $table->foreign('siswa_id')
                   ->references('siswa_id')

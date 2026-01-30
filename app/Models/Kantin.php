@@ -2,9 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\BaseModel;
 
-class Kantin extends Model
+class Kantin extends BaseModel
 {
-    //
+    protected $primaryKey = "kantin_id";
+    protected $table = "kantin";
+
+    protected $fillable = [
+        'nama',
+        'lokasi',
+        'sekolah_id'
+    ];
 }

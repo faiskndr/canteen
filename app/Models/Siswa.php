@@ -16,4 +16,9 @@ class Siswa extends BaseModel
         'foto',
         'sekolah_id',
     ];
+
+    public function kartuRelation()
+    {
+        return $this->hasOne(Kartu::class, 'siswa_id', 'siswa_id')->where('status', 'aktif');
+    }
 }

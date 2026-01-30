@@ -2,9 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Kartu extends Model
+class Kartu extends BaseModel
 {
-    //
+    protected $primaryKey = "kartu_id";
+    protected $table = "kartu";
+
+    protected $fillable = [
+        'no_kartu',
+        'pin',
+        'saldo',
+        'status',
+        'siswa_id',
+    ];
 }

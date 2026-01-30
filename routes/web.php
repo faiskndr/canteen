@@ -3,6 +3,7 @@
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Siswa;
 use App\Livewire\Admin\Petugas;
+use App\Livewire\Admin\Kantin;
 use App\Livewire\AuthComponent;
 use App\Livewire\Siswa\KartuComponent;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ Route::prefix('/admin')->middleware(['auth', 'is_admin'])->group(function () {
    Route::get('/dashboard', Dashboard::class); 
    Route::get('/siswa', Siswa::class);
    Route::get('/petugas', Petugas::class);
+   Route::get('/kantin', Kantin::class);
 });
 
 Route::prefix('/siswa')->group(function () {
