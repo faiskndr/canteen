@@ -32,6 +32,7 @@ class ResetPin extends Component
 
     public function handlePinUpdated(string $pin)
     {
+        $this->isPinMatch = true;
         $this->resetErrorBag();
         if (is_null($this->pin)) {
             $this->pin = $pin;
@@ -43,7 +44,9 @@ class ResetPin extends Component
             $this->addError("pin", "Pin tidak sama!");
         }
 
-        $this->isPinMatch = true;
+        if ($this->pin == $this->confirmPin && strlen($this->pin) == 4 && strlen($this->confirmPin) == 4) {
+            $this->isPinMatch = true;
+        }   
     }
 
     public function resetPins()
@@ -57,9 +60,14 @@ class ResetPin extends Component
         if ($this->pin != $this->confirmPin && strlen($this->pin) == 4 && strlen($this->confirmPin) == 4) {
             $this->addError("pin", "Pin tidak sama!");
         }
-        $this->kartuModel->pin = $this->pin;
-        $this->kartuModel->save();
-        $this->dispatch('handleStep', 'scan');
+
+        if ($this->pin == $this->confirmPin && strlen($this->pin) == 4 && strlen($this->confirmPin) == 4) {
+            $this->kartuModel->pin = $this->pin;
+            $this->kartuModel->save();
+            $this->dispatch('handleStep', 'scan');
+        } else {
+            $this->addError("pin", "Pin tidak valid!");
+        }
     }
 
     public function render()
