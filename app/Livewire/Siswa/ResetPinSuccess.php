@@ -10,4 +10,9 @@ class ResetPinSuccess extends Component
     {
         return view('livewire.siswa.reset-pin-success');
     }
+
+    public function logout()
+    {
+        $this->dispatch('handleStep', 'scan');
+    }
 }
