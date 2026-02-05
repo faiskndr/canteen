@@ -12,7 +12,7 @@
               LOGOUT
             </button>
           </div>
-          <p class="text-gray-600">Smart Canteen sekolah {{ auth()->user()->sekolahRelation->nama }}</p>
+          <p class="text-gray-600">Smart Canteen sekolah {{ auth()->user()?->sekolahRelation?->nama }}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
