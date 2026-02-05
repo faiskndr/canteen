@@ -3,7 +3,7 @@
     @case("scan")
     <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8">
       <div class="w-full max-w-md bg-white border-4 border-gray-800 p-8">
-        <h1 class="text-3xl font-bold text-center mb-2">CEK SALDO</h1>
+        <h1 class="text-3xl font-bold text-center mb-2">TAP KARTU</h1>
         <p class="text-center text-gray-600 mb-8" id="status">Tap kartu Untuk Melanjutakan</p>
         @error("kartu")
          <div class="bg-red-100 border-4 border-red-500 p-4 mb-6">
