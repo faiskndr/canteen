@@ -166,7 +166,7 @@
             @endforelse
         </div>
         <div class="mt-4">
-            {{ $kartu->links() }}
+            {{ $kartu->links('vendor.pagination.tailwind') }}
         </div>
     </div>
 </div>

@@ -56,10 +56,12 @@
         @endfor
     </div>
 </div>
+    @if($isShowSubmit)
         <button
               wire:click="submit"
               class="w-full mt-4 bg-gray-800 text-white p-4 text-xl font-bold hover:bg-gray-700 active:bg-gray-900"
             >
               Proses
         </button>
+    @endif
 </div>

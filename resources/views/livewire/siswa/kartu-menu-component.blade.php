@@ -13,7 +13,7 @@
                 <div class="w-12 h-12 border-4 border-gray-800 flex items-center justify-center">
                 <Wallet size={24} />
                 </div>
-                <span>CHECK BALANCE</span>
+                <span>CEK SALDO</span>
             </button>
 
             <button
@@ -23,11 +23,11 @@
                 <div class="w-12 h-12 border-4 border-gray-800 flex items-center justify-center">
                 <History size={24} />
                 </div>
-                <span>TRANSACTION HISTORY</span>
+                <span>RIWAYAT TRANSAKSI</span>
             </button>
 
             <button
-                onClick={onSelectResetPin}
+                wire:click="selectMenu('reset-pin')"
                 class="w-full bg-white border-4 border-orange-600 text-orange-600 p-6 text-xl font-bold hover:bg-orange-50 active:bg-orange-100 flex items-center justify-center gap-4"
             >
                 <div class="w-12 h-12 border-4 border-orange-600 flex items-center justify-center">

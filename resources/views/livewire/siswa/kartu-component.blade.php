@@ -17,7 +17,7 @@
             <p class="text-xl font-bold text-center">TAP DI SINI</p>
           </div>
         </div>
-        <pre id="output">Waiting for NFC data...</pre>
+        <!-- <pre id="output">Waiting for NFC data...</pre> -->
         <button
           wire:click="process"
           class="w-full bg-gray-800 text-white p-4 text-xl font-bold hover:bg-gray-700 active:bg-gray-900"
@@ -38,6 +38,9 @@
     @break
     @case("riwayat-transaksi")
       <livewire:siswa.riwayat-transaksi/>
+    @break
+    @case("reset-pin")
+      <livewire:siswa-reset-pin :kartuModel="$kartuModel"/>
     @break
   @endswitch
 </div>

@@ -114,7 +114,7 @@
                 </div>
             @endforelse
             <div class="mt-4">
-                {{ $transaksi->links() }}
+                {{ $transaksi->links('vendor.pagination.tailwind') }}
             </div>
         </div>
       </div>

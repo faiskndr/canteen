@@ -18,11 +18,12 @@ class KartuComponent extends Component
 
     public function process()
     {
-        $this->kartuModel = KartuModel::where('no_kartu', $this->nomorKartu)->first();
+        $kartuModel = KartuModel::where('no_kartu', $this->nomorKartu)->first();
         if (is_null($this->kartuModel)) {
             $this->addError("kartu", "Nomor kartu tidak terdaftar!");
             return;
         }
+        $this->kartuModel = $kartuModel;
         $this->langkah = 'pin';
     }
 

@@ -11,6 +11,7 @@ class InputPinComponent extends Component
     public int $length = 6;
     public array $value = [];
     public string $jenis = '';
+    public $isShowSubmit = true;
 
     protected $rules = [
         'value' => 'nullable|string',
@@ -23,10 +24,12 @@ class InputPinComponent extends Component
 
     public function updatedValue()
     {
-        // $this->value = substr(preg_replace('/\D/', '', $this->value), 0, $this->length);
-        // if (strlen($this->value) === $this->length) {
-
-        // }
+        if ($this->jenis == 'reset-pin') {
+            $this->dispatch(
+                'pin-updated',
+                pin: implode('', $this->pin)
+            );
+        }
     }
 
     public function setChar(int $index, string $char)

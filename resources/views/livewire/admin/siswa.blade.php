@@ -185,7 +185,7 @@
                 </div>
             @endforelse
             <div class="mt-4">
-                {{ $siswa->links() }}
+                {{ $siswa->links('vendor.pagination.tailwind') }}
             </div>
         </div>
         </div>
