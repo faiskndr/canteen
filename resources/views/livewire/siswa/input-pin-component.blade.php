@@ -20,7 +20,7 @@
             >
         
                 <input
-                    type="text"
+                    type="password"
                     inputmode="numeric"
                     maxlength="1"
                     class="absolute inset-0 h-full w-full text-center bg-transparent outline-none caret-transparent"
