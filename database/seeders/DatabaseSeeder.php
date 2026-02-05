@@ -32,11 +32,11 @@ class DatabaseSeeder extends Seeder
 
         Sekolah::factory(20)->create();
 
-        User::factory()->create([
-            'username' => 'admin',
-            'user_group_id' => 2,
-            'sekolah_id' => 1,
-        ]);
+        // User::factory()->create([
+        //     'username' => 'admin',
+        //     'user_group_id' => 2,
+        //     'sekolah_id' => 1,
+        // ]);
 
         User::factory()->create([
             'username' => 'superadmin',
