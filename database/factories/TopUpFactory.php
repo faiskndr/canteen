@@ -9,12 +9,8 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class UserFactory extends Factory
+class TopUpFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
 
     /**
      * Define the model's default state.
@@ -24,8 +20,8 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'nama' => fake()->name(),
-            'password' => static::$password ??= Hash::make('password'),
+            'nominal' => 10000,
+            'petugas_top_up_id' => 3,
         ];
     }
 

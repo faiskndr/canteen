@@ -9,12 +9,11 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class UserFactory extends Factory
+class SekolahFactory extends Factory
 {
     /**
      * The current password being used by the factory.
      */
-    protected static ?string $password;
 
     /**
      * Define the model's default state.
@@ -24,8 +23,8 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'nama' => fake()->name(),
-            'password' => static::$password ??= Hash::make('password'),
+            'nama' => fake()->city(),
+            'alamat' => fake()->streetAddress
         ];
     }
 

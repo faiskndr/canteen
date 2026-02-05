@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(UserGroup::class, 'user_group_id', 'user_group_id');
     }
+
+    public function sekolahRelation()
+    {
+        return $this->belongsTo(Sekolah::class, 'sekolah_id', 'sekolah_id');
+    }
 }

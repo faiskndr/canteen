@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Kartu extends BaseModel
 {
+    use HasFactory;
+
     protected $primaryKey = "kartu_id";
     protected $table = "kartu";
 

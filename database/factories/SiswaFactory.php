@@ -9,12 +9,8 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class UserFactory extends Factory
+class SiswaFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
 
     /**
      * Define the model's default state.
@@ -23,9 +19,13 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $kelas = ['XII AKL', 'XII RPL', 'XII AP', 'XII OTKP', 'XII TM', 'XII TKJ', 'XII PM', 'XII FS'];
         return [
+            'nis' => random_int(17610, 17999),
             'nama' => fake()->name(),
-            'password' => static::$password ??= Hash::make('password'),
+            'kelas' => $kelas[rand(0, 7)],
+            'sekolah_id' => rand(1, 20),
+            'foto' => 'default.png'
         ];
     }
 
