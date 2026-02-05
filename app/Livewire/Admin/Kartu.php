@@ -51,7 +51,8 @@ class Kartu extends Component
             if ($this->kartuForm->is_hilang == '1') {
                 KartuModel::create([
                     'pin' => '1234',
-                    'no_kartu' => random_int(1000000000, 9999999999),
+                    // 'no_kartu' => random_int(1000000000, 9999999999),
+                    'no_kartu' => 20250205411,
                     'status' => 'aktif',
                     'siswa_id' => $this->kartuModel->siswa_id,
                     'saldo' => $this->kartuModel->saldo,
