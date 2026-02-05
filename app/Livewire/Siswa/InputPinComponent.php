@@ -24,22 +24,27 @@ class InputPinComponent extends Component
 
     public function updatedValue()
     {
-        if ($this->jenis == 'reset-pin') {
-            $this->dispatch(
-                'pin-updated',
-                pin: implode('', $this->pin)
-            );
-        }
+        
+
     }
 
     public function setChar(int $index, string $char)
     {
+        $this->value[$index] = $char;
+        if ($this->jenis == 'reset-pin') {
+            if (sizeof($this->value) === $this->length) {
+                $this->dispatch(
+                    'pin-updated',
+                    pin: implode('', $this->value)
+                );
+            }   
+        }
         // $chars = str_split(str_pad($this->value, $this->length));
         // if ($index == 1) dd($char);
         // $chars[$index] = $char ?: '';
     
         // $this->value = implode('', $chars);
-        $this->value[$index] = $char;
+        
     }
 
     public function submit()

@@ -56,7 +56,7 @@
 
         try {
             if (!('NDEFReader' in window)) {
-                $wire.nomorKartu = '2920743651'
+                $wire.nomorKartu = '5565781178'
                 status.textContent = '❌ Web NFC is not supported on this device/browser.';
                 return;
             }

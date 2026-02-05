@@ -1,5 +1,4 @@
 <div>
-  <x-flash-error />
   <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8">
       <div class="w-full max-w-md bg-white border-4 border-gray-800 p-8">
         <div class="flex items-center justify-center mb-8">
@@ -15,17 +14,21 @@
           <div class="mb-8">
             <label class="block text-sm font-bold mb-3">PIN BARU</label>
             <div class="flex justify-center">
-                <livewire:siswa.input-pin-component :kartuModel="$kartuModel" :length="4" :jenis="$jenis" :isShowSubmit="false"/>
+                <livewire:siswa.input-pin-component :key="$pinKey" :kartuModel="$kartuModel" :length="4" :jenis="$jenis" :isShowSubmit="false"/>
             </div>
           </div>
 
           <div class="mb-8">
             <label class="block text-sm font-bold mb-3">KONFIRMASI PIN BARU</label>
             <div class="flex justify-center">
-                <livewire:siswa.input-pin-component :kartuModel="$kartuModel" :length="4" :jenis="$jenis" :isShowSubmit="false"/>
+                <livewire:siswa.input-pin-component :key="$confirmPinKey" :kartuModel="$kartuModel" :length="4" :jenis="$jenis" :isShowSubmit="false"/>
             </div>
           </div>
-
+          @error("pin")
+          <div class="bg-red-100 border-4 border-red-500 p-4 mb-6">
+                <p class="text-red-700 font-bold text-center">{{ $message }}</p>
+          </div>
+          @enderror
           @if($isPinMatch)
             <div class="border-4 border-green-600 p-4 mb-6 bg-green-50">
               <p class="text-green-700 font-bold text-center">✓ PIN Sama!</p>
