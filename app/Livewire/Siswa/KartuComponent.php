@@ -19,7 +19,7 @@ class KartuComponent extends Component
     public function process()
     {
         $kartuModel = KartuModel::where('no_kartu', $this->nomorKartu)->first();
-        if (is_null($this->kartuModel)) {
+        if (is_null($kartuModel)) {
             $this->addError("kartu", "Nomor kartu tidak terdaftar!");
             return;
         }
