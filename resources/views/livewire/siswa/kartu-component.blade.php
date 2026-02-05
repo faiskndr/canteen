@@ -67,6 +67,7 @@
             scanBtn.disabled = true;
 
             ndef.onreading = event => {
+                status.textContent = '✅ NFC card read successfully';
                 const { serialNumber, message } = event;
 
                 let records = [];
@@ -87,7 +88,7 @@
                 $wire.nomorKartu = records[0].data
 
                 output.textContent = JSON.stringify(result, null, 2);
-                status.textContent = '✅ NFC card read successfully';
+                
                 scanBtn.disabled = false;
             };
 
