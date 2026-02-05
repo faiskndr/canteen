@@ -9,10 +9,10 @@ use App\Traits\BackToCardMenu;
 class RiwayatTransaksi extends Component
 {
     use BackToCardMenu;
-    
+
     public function render()
     {
-        $transaksi = RiwayatSaldo::get();
+        $transaksi = RiwayatSaldo::orderBy('dibuat_pada', 'desc')->get();
         $totalData = sizeof($transaksi);
         return view('livewire.siswa.riwayat-transaksi')->with([
             'transaksi' => $transaksi,
