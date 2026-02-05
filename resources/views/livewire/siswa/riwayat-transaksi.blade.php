@@ -82,10 +82,11 @@
         </div>
 
         <button
+          wire:click="backToMenu"
           class="w-full bg-gray-800 text-white p-4 text-xl font-bold hover:bg-gray-700 active:bg-gray-900 flex items-center justify-center gap-2"
         >
           <ArrowLeft size={24} />
-          <span>Logout</span>
+          <span>Kembali</span>
         </button>
       </div>
     </div>

@@ -4,9 +4,12 @@ namespace App\Livewire\Siswa;
 
 use Livewire\Component;
 use App\Models\RiwayatSaldo;
+use App\Traits\BackToCardMenu;
 
 class RiwayatTransaksi extends Component
 {
+    use BackToCardMenu;
+    
     public function render()
     {
         $transaksi = RiwayatSaldo::get();

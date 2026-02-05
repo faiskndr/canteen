@@ -32,6 +32,7 @@ class ResetPin extends Component
 
     public function handlePinUpdated(string $pin)
     {
+        $this->resetErrorBag();
         if (is_null($this->pin)) {
             $this->pin = $pin;
         } else {
@@ -53,6 +54,9 @@ class ResetPin extends Component
 
     public function submit()
     {
+        if ($this->pin != $this->confirmPin && strlen($this->pin) == 4 && strlen($this->confirmPin) == 4) {
+            $this->addError("pin", "Pin tidak sama!");
+        }
         $this->kartuModel->pin = $this->pin;
         $this->kartuModel->save();
         $this->dispatch('handleStep', 'scan');
