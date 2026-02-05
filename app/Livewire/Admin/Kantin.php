@@ -13,13 +13,17 @@ class Kantin extends Component
 
     public KantinForm $kantinForm;
     public ?KantinModel $kantinModel = null;
+    public $cari = '';
     public $isShowForm = false;
     public $isEdit = false;
 
     public function render()
     {
-        $total = KantinModel::count();
-        $kantin = KantinModel::get();
+        $baseQuery = KantinModel::when($this->cari, function($query) {
+            $query->where('nama', 'like', '%' . $this->cari . '%');
+        });
+        $total = $baseQuery->count();
+        $kantin = $baseQuery->get();
         return view('livewire.admin.kantin')->with([
             'kantin' => $kantin,
             'total' => $total

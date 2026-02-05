@@ -53,12 +53,8 @@
         @case("pin")
             <livewire:siswa.pin-component :kartuModel="$kartuModel" jenis="payment"/>
         @break
-        case("status")
-              
-        @break
-    @endswitch
-    @if ($langkah == "status-pembayaran")
-    <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8">
+        @case("status-pembayaran")
+              <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8">
                   <div class="w-full max-w-md bg-white border-4 border-green-600 p-8">
                     <div class="flex items-center justify-center mb-8">
                       <div class="w-24 h-24 border-4 border-green-600 rounded-full flex items-center justify-center bg-green-50">
@@ -107,13 +103,15 @@
                     </button>
 
                     <button
+                      wire:click="newTransaction"
                       class="w-full bg-gray-800 text-white p-4 text-xl font-bold hover:bg-gray-700 active:bg-gray-900"
                     >
                       Transaksi Baru
                     </button>
                   </div>
               </div>
-    @endif
+        @break
+    @endswitch
 </div>
 
 

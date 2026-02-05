@@ -83,9 +83,10 @@
               <Search size={20} />
             </div>
             <input
+              wire:model.live="cari"
               type="text"
               class="flex-1 p-3 focus:outline-none"
-              placeholder="Cari berdasarkan username atau role..."
+              placeholder="Cari berdasarkan nama kantin"
             />
           </div>
         </div>

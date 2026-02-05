@@ -97,6 +97,7 @@
                     🔍
                 </div>
                 <input
+                    wire:model.live="cari"
                     type="text"
                     class="flex-1 p-3 focus:outline-none"
                     placeholder="Cari berdasarkan nama siswa, NIS, atau ID kartu..."
@@ -163,6 +164,9 @@
                     <p class="text-gray-500 font-bold">Kartu tidak ditemukan</p>
                 </div>
             @endforelse
+        </div>
+        <div class="mt-4">
+            {{ $kartu->links() }}
         </div>
     </div>
 </div>

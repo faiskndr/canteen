@@ -9,7 +9,7 @@ class InputPinComponent extends Component
 {
     public KartuModel $kartuModel;
     public int $length = 6;
-    public string $value = '';
+    public array $value = [];
     public string $jenis = '';
 
     protected $rules = [
@@ -23,16 +23,28 @@ class InputPinComponent extends Component
 
     public function updatedValue()
     {
-        $this->value = substr(preg_replace('/\D/', '', $this->value), 0, $this->length);
+        // $this->value = substr(preg_replace('/\D/', '', $this->value), 0, $this->length);
         // if (strlen($this->value) === $this->length) {
 
         // }
     }
 
+    public function setChar(int $index, string $char)
+    {
+        // $chars = str_split(str_pad($this->value, $this->length));
+        // if ($index == 1) dd($char);
+        // $chars[$index] = $char ?: '';
+    
+        // $this->value = implode('', $chars);
+        $this->value[$index] = $char;
+    }
+
     public function submit()
     {
-        if ($this->kartuModel->pin != $this->value) {
-            $this->addError("pin", "invalid pin!");
+        $pin = implode('', $this->value);
+        if ($this->kartuModel->pin != $pin) {
+            $this->dispatch('flash-error', message: 'Invalid pin');
+            return;
         }
         if ($this->jenis == 'top-up') {
             $this->dispatch('nextTopUpStep');

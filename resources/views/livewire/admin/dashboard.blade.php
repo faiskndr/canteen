@@ -12,7 +12,7 @@
               LOGOUT
             </button>
           </div>
-          <p class="text-gray-600">Smart Canteen</p>
+          <p class="text-gray-600">Smart Canteen sekolah {{ auth()->user()->sekolahRelation->nama }}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -63,6 +63,7 @@
           </button>
 
           <button
+            wire:click="goToTransaksi"
             class="bg-white border-4 border-gray-800 p-8 hover:bg-gray-100 active:bg-gray-200"
           >
             <div class="flex items-center gap-4 mb-4">

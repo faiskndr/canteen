@@ -33,11 +33,27 @@ class Pembayaran extends Component
         $this->langkah = $step;
     }
 
+    public function newTransaction()
+    {
+        $this->langkah = 'input';
+        $this->jumlah = 0;
+        $this->saldoLama = 0;
+    }
+
     #[On('processPayment')]
     public function processPayment($nomorKartu)
     {
+        if (empty($nomorKartu)) {
+            // session()->flash('error', 'Invalid nomor kartu!');
+            $this->dispatch('flash-error', message: 'Invalid nomor kartu!');
+            return;
+        }
         $this->nomorKartu = $nomorKartu;
         $this->kartuModel = KartuModel::where("no_kartu", $nomorKartu)->first();
+
+        if ($this->kartuModel->status == "blokir") {
+            $this->dispatch('flash-error', message: 'kartu tidak aktif');
+        }
 
         $this->langkah = "pin";
     }

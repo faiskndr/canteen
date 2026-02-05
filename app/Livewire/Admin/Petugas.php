@@ -16,6 +16,7 @@ class Petugas extends Component
     
     public ?User $user = null;
     public PetugasForm $petugasForm;
+    public $cari = '';
     public $isShowForm = false;
     public $isEdit = false;
     public $userGroupList = [];
@@ -23,9 +24,14 @@ class Petugas extends Component
 
     public function render()
     {
-        $petugas = User::whereIn('user_group_id', [3,4])->get();
+        $baseQuery = User::whereIn('user_group_id', [3,4])->when($this->cari, function ($query) {
+            $query->where('username', 'like', '%' . $this->cari . '%');
+        });
+        $petugas = $baseQuery->get();
+        $totalPetugas = $baseQuery->count();
         return view('livewire.admin.petugas')->with([
-            'petugas' => $petugas
+            'petugas' => $petugas,
+            'total_petugas' => $totalPetugas
         ]);
     }
 

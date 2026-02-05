@@ -4,6 +4,7 @@ namespace App\Livewire\Admin;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\Siswa as SiswaModel;
@@ -14,16 +15,21 @@ use App\Traits\RedirectToAdminDashboard;
 
 class Siswa extends Component
 {
-    use WithFileUploads, RedirectToAdminDashboard;
+    use WithFileUploads,WithPagination, RedirectToAdminDashboard;
 
     public SiswaForm $siswaForm;
     public ?SiswaModel $siswaModel = null;
+    public $cari = '';
 
     public $isShowForm = false;
     public $isEdit = false;
     public function render()
     {
-        $siswa = SiswaModel::get();
+        $siswa = SiswaModel::when($this->cari, function ($query) {
+            $query->where('nama', 'like', '%' .$this->cari .'%')
+            ->orWhere('nis', 'like', '%' . $this->cari . '%')
+            ->orWhere('kelas', 'like', '%' . $this->cari . '%');
+        })->paginate(10);
         $totalSiswa = SiswaModel::count();
 
         foreach ($siswa as $s) {
@@ -34,6 +40,11 @@ class Siswa extends Component
             'siswa' => $siswa,
             'total_siswa' => $totalSiswa
         ]);
+    }
+
+    public function updating()
+    {
+        $this->resetPage();
     }
 
     public function save()

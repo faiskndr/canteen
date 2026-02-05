@@ -1,4 +1,5 @@
 <div>
+    <x-flash-error />
     <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-8">
       <div class="w-full max-w-md bg-white border-4 border-gray-800 p-8">
         <div class="flex items-center justify-center mb-8">

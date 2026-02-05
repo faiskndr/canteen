@@ -133,6 +133,7 @@
                   <Search size={20} />
               </div>
               <input
+                  wire:model.live="cari"
                   type="text"
                   class="flex-1 p-3 focus:outline-none"
                   placeholder="Cari Berdasarkan NIS, nama, atau kelas..."
@@ -183,6 +184,9 @@
                     <p class="text-gray-500 font-bold">SISWA TIDAK DITEMUKAN</p>
                 </div>
             @endforelse
+            <div class="mt-4">
+                {{ $siswa->links() }}
+            </div>
         </div>
         </div>
     </div>

@@ -8,6 +8,7 @@
                     <p class="text-red-700 font-bold text-center">{{ $message }}</p>
               </div>
             @enderror
+            <x-flash-error />
             <div class="border-4 border-dashed border-gray-400 p-12 mb-8 bg-gray-50" id="scanBtn">
               <div class="flex flex-col items-center">
                 <div class="w-24 h-24 border-4 border-gray-800 flex items-center justify-center mb-4 animate-pulse">

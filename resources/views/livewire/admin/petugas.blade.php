@@ -97,7 +97,7 @@
           <div class="flex items-center justify-between mb-4">
             <div>
               <h1 class="text-3xl font-bold">MANAJEMEN PETUGAS</h1>
-              <p class="text-gray-600">Total: 0 petugas</p>
+              <p class="text-gray-600">Total: {{ $total_petugas }} petugas</p>
             </div>
             <div class="flex gap-4">
               <button
@@ -122,6 +122,7 @@
                   <Search size={20} />
               </div>
               <input
+                  wire:model.live="cari"
                   type="text"
                   class="flex-1 p-3 focus:outline-none"
                   placeholder="Cari username"

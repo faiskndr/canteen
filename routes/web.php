@@ -5,6 +5,12 @@ use App\Livewire\Admin\Siswa;
 use App\Livewire\Admin\Petugas;
 use App\Livewire\Admin\Kantin;
 use App\Livewire\Admin\Kartu;
+use App\Livewire\Admin\Transaksi;
+use App\Livewire\SuperAdmin\Dashboard as SuperAdminDashboard;
+use App\Livewire\SuperAdmin\Sekolah;
+use App\Livewire\SuperAdmin\AdminSekolah;
+use App\Livewire\SuperAdmin\ManajemenDatabase;
+use App\Livewire\SuperAdmin\ModePerawatan;
 use App\Livewire\AuthComponent;
 use App\Livewire\Siswa\KartuComponent;
 use App\Livewire\Siswa\PinComponent;
@@ -19,7 +25,11 @@ Route::get('/', function () {
 Route::get('/login', AuthComponent::class)->name('login');
 
 Route::prefix('/super-admin')->middleware(['auth', 'is_super_admin'])->group(function () {
-    Route::get('/dashboard', Dashboard::class);
+    Route::get('/dashboard', SuperAdminDashboard::class);
+    Route::get('/sekolah', Sekolah::class);
+    Route::get('/admin-sekolah', AdminSekolah::class);
+    Route::get('/maintenance', ModePerawatan::class);
+    Route::get('/backup', ManajemenDatabase::class);
 });
 
 Route::prefix('/admin')->middleware(['auth', 'is_admin'])->group(function () {
@@ -28,6 +38,7 @@ Route::prefix('/admin')->middleware(['auth', 'is_admin'])->group(function () {
    Route::get('/petugas', Petugas::class);
    Route::get('/kantin', Kantin::class);
    Route::get('/kartu', Kartu::class);
+   Route::get('/transaksi', Transaksi::class);
 });
 
 Route::prefix('/siswa')->group(function () {

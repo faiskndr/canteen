@@ -31,7 +31,7 @@ class AuthComponent extends Component
       $userGroupId = $user->user_group_id;
       
       return match ($userGroupId) {
-          1 => redirect()->intended('/superadmin/dashboard'),
+          1 => redirect()->intended('/super-admin/dashboard'),
           2 => redirect()->intended('/admin/dashboard'),
           3 => redirect()->intended('/petugas-top-up/top-up'),
           4 => redirect()->intended('/petugas-kantin/bayar'),
