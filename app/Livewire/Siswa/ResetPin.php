@@ -32,7 +32,7 @@ class ResetPin extends Component
 
     public function handlePinUpdated(string $pin)
     {
-        $this->isPinMatch = true;
+        $this->isPinMatch = false;
         $this->resetErrorBag();
         if (is_null($this->pin)) {
             $this->pin = $pin;
