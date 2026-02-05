@@ -40,7 +40,7 @@
       <livewire:siswa.riwayat-transaksi/>
     @break
     @case("reset-pin")
-      <livewire:siswa-reset-pin :kartuModel="$kartuModel"/>
+      <livewire:siswa.reset-pin :kartuModel="$kartuModel"/>
     @break
   @endswitch
 </div>
