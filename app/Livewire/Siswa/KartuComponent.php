@@ -23,6 +23,10 @@ class KartuComponent extends Component
             $this->addError("kartu", "Nomor kartu tidak terdaftar!");
             return;
         }
+        if ($kartuModel->status == 'blokir') {
+            $this->addError("kartu", "Kartu tidak aktif!");
+            return;
+        }
         $this->kartuModel = $kartuModel;
         $this->langkah = 'pin';
     }
