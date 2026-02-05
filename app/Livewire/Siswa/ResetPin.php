@@ -43,7 +43,7 @@ class ResetPin extends Component
             $this->addError("pin", "Pin tidak sama!");
         }
 
-        $isPinMatch = true;
+        $this->isPinMatch = true;
     }
 
     public function resetPins()
